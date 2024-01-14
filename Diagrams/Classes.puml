@@ -1,0 +1,42 @@
+@startuml Bank - Class Diagram
+
+class Person {
+  id: int
+  name: str
+}
+
+class Account {
+  iban: str
+  currency: str
+  balance: float
+  country: str
+  pin: str
+}
+
+interface Card {
+  doWithdrawal()
+}
+
+class DebitCard {
+  number: str
+  pin: int
+  doDeposit()
+  showBalance()
+  doBankTransfer()
+}
+
+class CreditCard {
+  number: str
+  pin: int
+  creditLimit: float
+}
+
+
+Card <|-- DebitCard
+Card <|-- CreditCard
+
+Person *-- "0..*" Account : contains
+Account *-- "1..*" Card : contains
+Card -- "0..1" Person
+
+@enduml
