@@ -1,0 +1,78 @@
+@startuml Bank - Use Case Diagram
+
+left to right direction
+
+skin rose
+
+title Bank - Use Case Diagram 
+
+actor BankOperator
+
+package BaseData {
+
+  package Person {
+    usecase "Add new person" as addNewPers
+    usecase "Change person information" as changePersInfo
+    usecase "Deactivate person" as deactivatePers
+    usecase "Activate existing person" as activatePers
+  }
+
+  package Account {
+    usecase "Add new account" as addNewAcc
+    usecase "Change PIN of account" as changePinOfAcc
+    usecase "Deactivate account" as deactivateAcc
+    usecase "Activate existing account" as activateAcc
+  }
+  
+  package Card {
+    usecase "Add new card" as addNewCard
+    usecase "Change PIN of card" as changePinOfCard
+    usecase "Deactivate card" as deactivateCard
+    usecase "Activate existing card" as activateCard
+  }
+}
+
+BankOperator --> addNewPers
+BankOperator --> changePersInfo
+BankOperator --> deactivatePers
+BankOperator --> activatePers
+
+BankOperator --> addNewAcc
+BankOperator --> changePinOfAcc
+BankOperator --> deactivateAcc
+BankOperator --> activateAcc
+
+BankOperator --> addNewCard
+BankOperator --> changePinOfCard
+BankOperator --> deactivateCard
+BankOperator --> activateCard
+
+package AccountOperations {
+  usecase "Withdrawal" as withdrawal
+  usecase "Deposit" as deposit
+  usecase "Balance" as balance
+}
+
+BankOperator --> withdrawal
+BankOperator --> deposit
+BankOperator --> balance
+
+package PrintInforamtion {
+  usecase "Print all persons" as printAllPers
+  usecase "Print all accounts" as printAllAcc
+  usecase "Print all cards" as printAllCards
+  usecase "Print specific person" as printSpecPers
+  usecase "Print specific account" as printSpecAcc
+  usecase "Print specific card" as printSpecCard
+  usecase "Print total balance of all accounts" as printTotBalAllAcc
+}
+
+BankOperator --> printAllPers
+BankOperator --> printAllAcc
+BankOperator --> printAllCards
+BankOperator --> printSpecPers
+BankOperator --> printSpecAcc
+BankOperator --> printSpecCard
+BankOperator --> printTotBalAllAcc
+
+@enduml
