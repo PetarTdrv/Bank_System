@@ -40,3 +40,5 @@ Account *-- "1..*" Card : contains
 Card -- "0..1" Person
 
 @enduml
+
+view diagram: https://photos.app.goo.gl/b3t48M52vxrzFjm18
